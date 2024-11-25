@@ -1,0 +1,15 @@
+Case Number: 12345
+Type of IP: Patent
+Parties Involved: Company A vs. Company B
+Jurisdiction: US District Court
+Date Filed: 2024-01-15
+Outcome: Pending
+Description: Alleged infringement of patent XYZ123 related to mobile technology.
+
+Case Number: 67890
+Type of IP: Trademark
+Parties Involved: Brand X vs. Brand Y
+Jurisdiction: EUIPO
+Date Filed: 2023-11-25
+Outcome: Settled
+Description: Dispute over trademark usage in advertising.
