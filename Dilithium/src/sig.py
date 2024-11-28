@@ -18,7 +18,6 @@ print("Enabled signature mechanisms:")
 sigs = oqs.get_enabled_sig_mechanisms()
 pprint(sigs, compact=True)
 
-#message = "This is the message to sign".encode()
 # Create signer and verifier with sample signature mechanisms
 def sign_file(filename,pub_key_path,priv_key_path,signature_file):
 
@@ -32,23 +31,13 @@ def sign_file(filename,pub_key_path,priv_key_path,signature_file):
         # Signer generates its keypair
         signer_public_key = signer.generate_keypair()
         signer_private_key = signer.export_secret_key()
-        # Optionally, the secret key can be obtained by calling export_secret_key()
-        # and the signer can later be re-instantiated with the key pair:
-        # secret_key = signer.export_secret_key()
-
-        # Store key pair, wait... (session resumption):
-        # signer = oqs.Signature(sigalg, secret_key)
-        # Signer signs the message
         signature = signer.sign(message)
         print(f"Generated signature size: {len(signature)} bytes")
+
+
         write_file(pub_key_path, signer_public_key)
         write_file(priv_key_path,signer_private_key)
         write_file(signature_file,signature)
-
-        # Verifier verifies the signature
-        # is_valid = verifier.verify(message, signature, signer_public_key)
-
-        # print("\nValid signature?", is_valid)
 
 def verify_signature(filename, pub_key_path,signature_file):
     message = read_file(filename)
@@ -62,14 +51,35 @@ def verify_signature(filename, pub_key_path,signature_file):
         print("\nValid signature?", is_valid)
         return is_valid
 
+def owner_update(filename,priv_key_path,new_signature_filepath):
+    message = read_file(filename)
+    private_key = read_file(priv_key_path)
+
+    sigalg = "Dilithium2"
+    with oqs.Signature(sigalg,private_key) as signer:
+        new_signature = signer.sign(message)
+        write_file(new_signature_filepath,new_signature)
+
 
 if __name__ == "__main__":
     filename = "../Test-Data/Infringement Data.txt"
     pub_key_path = "../Test-Data/pub_key.key"
     priv_key_path = "../Test-Data/private_key.key"
     signature_file = "../Test-Data/sigfile.sig"
+    new_signature_filepath = "../Test-Data/new_sigfile.sig"
+    modified_file = "../Test-Data/Modified_Infringement_Data.txt"
     if not os.path.exists(filename):
         print(f"Error:{filename} not found")
     else:
+        #sign the file and save the public,privte keys and the signatures to the paths given
         sign_file(filename,pub_key_path,priv_key_path, signature_file)
         verify_signature(filename,pub_key_path,signature_file)
+
+        #update file
+        content = read_file(filename)
+        new_content = content + b"\Modified"
+        write_file(modified_file,new_content)
+
+        #update the signature with the same private key
+        owner_update(modified_file,priv_key_path,new_signature_filepath)
+        verify_signature(modified_file,pub_key_path,new_signature_filepath)
