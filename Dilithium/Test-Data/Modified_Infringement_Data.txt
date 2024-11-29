@@ -13,4 +13,4 @@ Jurisdiction: EUIPO
 Date Filed: 2023-11-25
 Outcome: Settled
 Description: Dispute over trademark usage in advertising.
-\Modified
+Modified
