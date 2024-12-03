@@ -99,14 +99,10 @@ pip install .
 
 Execute `python3 sig.py`
 
-## Let's recall
+## Results
 
-```
-src: contains, sig.py, our Python implementation of CRYSTALS-Dilithium
-Test-Data: will store the sample infringement data 
-    Running the code generates the signed file for the sample data and their private and public keys.
-    Note: The code also demostrates the case where the owner modifies the file(modifies_infringement Data.txt) and generates a new signed file using the previously generated private key and is verified using the previous public key
-```
+Running the code generates the signed file for the sample data and their private and public keys.
+Note: The code also demostrates the case where the owner modifies the file(modifies_infringement Data.txt) and generates a new signed file using the previously generated private key and is verified using the previous public key
 
 ## Conclusion
  By focusing on CRYSTALS-Dilithium signatures, we aim to enhance the authenticity and integrity of intellectual property infringement data. Implementing CRYSTALS-Dilithium  provides strong protection against potential future quantum computing threats and ensure that infringement reports and related documents are secure and verifiable. This approach is expected to improve the verification process for IP claims, strengthen the protection of intellectual property assets, and increase overall trust in IP management systems.
