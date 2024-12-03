@@ -14,12 +14,14 @@ Our approach to address this vulnerability and ensure the integrity and authenti
 The Open Quantum Safe (OQS) project holds the goal of developing and prototyping quantum-resistant cryptography. liboqs-python offers a Python 3 wrapper for the [Open Quantum Safe](https://openquantumsafe.org/) [liboqs](https://github.com/open-quantum-safe/liboqs/) C library, which is a C library for quantum-resistant cryptographic algorithms. liboqs-python has been extensively tested on Linux, macOS and Windows platforms. The wrapper is written in Python 3, hence it is assumed that you have access to a Python 3 interpreter in the files and directories that the project contains.
 
 The project contains the following files and directories:
-`Dilithium/src/sig.py`: our CRYSTALS-Dilithium signature program
 
-`Dilithium/Test-Data`: Infringement Data.txt and modified_Infringement_Data.txt
+```
+src: contains, sig.py, our Python implementation of CRYSTALS-Dilithium
+Test-Data: will store the sample infringement data, modified infrigemenet data file (if modified), the signed files, and their private and public keys
+```
 
 ### Code Breakdown
-* The code sig.py is a signature Python example. We first import and install the liboqs-python requirements.
+* The code sig.py is a our Python implementation of CRYSTALS-Dilithium to secure intellectual property infringement data. We first import and install the liboqs-python requirements.
 * File Signing: Create signer and verifier with sample signature mechanisms. Intellectual property data files are signed with a quantum-resistant private key, generating a signature that uniquely identifies the file and proves its authenticity. Once generated, the public and private key files will be updated in the Test-Data directory.
 * Verification: Using the public key, recipients can then verify the signature to confirm that the file is genuine and untampered, building trust in the IP. The code compares the file’s signature with the public key and the original data stored in the Test-Data directory for verification.
 * Update Support: The system allows for legitimate updates to the IP data files by allowing owners to re-sign after changes with their private key, maintaining authenticity across versions. Our implementation uses the original stored private key to sign updated files and produce a new signature.
@@ -97,9 +99,12 @@ pip install .
 
 Execute `python3 sig.py`
 
-src: contains, sig.py, our Python implementation of CRYSTALS-Dilithium
-Test-Data: will store the sample infringement data, the signed files, and the private and public keys
+## Let's recall
 
+```
+src: contains, sig.py, our Python implementation of CRYSTALS-Dilithium
+Test-Data: will store the sample infringement data, modified infrigemenet data file (if modified), the signed files, and their private and public keys
+```
 
 ## Conclusion
  By focusing on CRYSTALS-Dilithium signatures, we aim to enhance the authenticity and integrity of intellectual property infringement data. Implementing CRYSTALS-Dilithium  provides strong protection against potential future quantum computing threats and ensure that infringement reports and related documents are secure and verifiable. This approach is expected to improve the verification process for IP claims, strengthen the protection of intellectual property assets, and increase overall trust in IP management systems.
