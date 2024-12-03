@@ -14,7 +14,7 @@ Our approach to address this vulnerability and ensure the integrity and authenti
 The Open Quantum Safe (OQS) project holds the goal of developing and prototyping quantum-resistant cryptography. liboqs-python offers a Python 3 wrapper for the [Open Quantum Safe](https://openquantumsafe.org/) [liboqs](https://github.com/open-quantum-safe/liboqs/) C library, which is a C library for quantum-resistant cryptographic algorithms. liboqs-python has been extensively tested on Linux, macOS and Windows platforms. The wrapper is written in Python 3, hence it is assumed that you have access to a Python 3 interpreter in the files and directories that the project contains.
 
 The project contains the following files and directories:
-`Dilithium/src/sig.py`: signature example
+`Dilithium/src/sig.py`: our CRYSTALS-Dilithium signature program
 
 `Dilithium/Test-Data`: Infringement Data.txt and modified_Infringement_Data.txt
 
@@ -40,6 +40,7 @@ The project contains the following files and directories:
 Execute in a Terminal/Console/Administrator Command Prompt
 
 ```
+cd Dilithium/src
 git clone --depth=1 https://github.com/open-quantum-safe/liboqs
 cmake -S liboqs -B liboqs/build -DBUILD_SHARED_LIBS=ON
 cmake --build liboqs/build --parallel 8
