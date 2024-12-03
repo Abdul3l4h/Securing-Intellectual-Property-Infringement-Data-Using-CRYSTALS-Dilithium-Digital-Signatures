@@ -45,7 +45,6 @@ git clone --depth=1 https://github.com/open-quantum-safe/liboqs
 cmake -S liboqs -B liboqs/build -DBUILD_SHARED_LIBS=ON
 cmake --build liboqs/build --parallel 8
 cmake --build liboqs/build --target install
-
 ```
 
 The last line may require prefixing it by sudo on UNIX-like systems. Change --parallel 8 to match the number of available cores on your system.
@@ -54,22 +53,17 @@ On UNIX-like platforms, you may need to set the `LD_LIBRARY_PATH` (`DYLD_LIBRARY
 
 ```
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-
 ```
 
 On Windows platforms, you must ensure that you add the `-DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=TRUE` flag to CMake, and that the liboqs shared library `oqs.dll` is visible system-wide, i.e., set the `PATH` environment variable accordingly by using the "Edit the system environment variables" Control Panel tool or executing in a Command Prompt
 
 ```
 set PATH=%PATH%;C:\Program Files (x86)\liboqs\bin
-
 ```
 
 You can change liboqs' installation directory by configuring the build to use an alternative path, e.g., `C:\liboqs, by passing the -DCMAKE_INSTALL_PREFIX=/path/to/liboqs` flag to CMake, e.g.,
-
 ```
-
 cmake -S liboqs -B liboqs/build -DCMAKE_INSTALL_PREFIX="C:\liboqs" -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=TRUE -DBUILD_SHARED_LIBS=ON
-
 ```
 
 ### Let liboqs-python install liboqs automatically
