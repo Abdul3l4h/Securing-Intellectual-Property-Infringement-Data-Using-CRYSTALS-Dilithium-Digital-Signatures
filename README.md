@@ -83,11 +83,9 @@ This is convenient in case you want to avoid installing liboqs manually, as desc
 Execute in a Terminal/Console/Administrator Command Prompt
 
 ```
-
 python3 -m venv venv
 . venv/bin/activate
 python3 -m ensurepip --upgrade
-
 ```
 
 On Windows, replace the line `. venv/bin/activate` by `venv\Scripts\activate.bat`
@@ -99,42 +97,15 @@ Execute in a Terminal/Console/Administrator Command Prompt
 ```
 git clone --depth=1 https://github.com/open-quantum-safe/liboqs-python
 pip install .
-
 ```
 
 ### Run the example
 
 Execute `python3 sig.py`
 
-### Run the unit test
+src: contains, sig.py, our Python implementation of CRYSTALS-Dilithium
+Test-Data: will store the sample infringement data, the signed files, and the private and public keys
 
-Execute `nose2 --verbose liboqs-python`
-
-## Usage in standalone applications
-
-liboqs-python can be imported into Python programs with
-
-```
-
-import oqs
-
-```
-
-liboqs-python defines two main classes: `KeyEncapsulation` and `Signature`, providing post-quantum key encapsulation and signature mechanisms, respectively. Each must be instantiated with a string identifying one of mechanisms supported by liboqs; these can be enumerated using the `get_enabled_KEM_mechanisms()` and `get_enabled_sig_mechanisms()` functions. The files in `examples/` demonstrate the wrapper's API. Support for alternative RNGs is provided via the `randombytes_*()` functions.
-
-The liboqs-python project should be in the PYTHONPATH. To ensure this on UNIX-like systems, execute 
-
-```
-export PYTHONPATH=$PYTHONPATH:/path/to/liboqs-python
-```
-
-or, on Windows platforms, use the "Edit the system environment variables" Control Panel tool or execute in a Command Prompt
-
-```
-
-set PYTHONPATH=%PYTHONPATH%;C:\path\to\liboqs-python
-
-```
 
 ## Conclusion
  By focusing on CRYSTALS-Dilithium signatures, we aim to enhance the authenticity and integrity of intellectual property infringement data. Implementing CRYSTALS-Dilithium  provides strong protection against potential future quantum computing threats and ensure that infringement reports and related documents are secure and verifiable. This approach is expected to improve the verification process for IP claims, strengthen the protection of intellectual property assets, and increase overall trust in IP management systems.
