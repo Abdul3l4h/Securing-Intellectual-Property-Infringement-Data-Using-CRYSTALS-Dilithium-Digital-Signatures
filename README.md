@@ -97,14 +97,13 @@ Execute in a Terminal/Console/Administrator Command Prompt
 
 ```
 git clone --depth=1 https://github.com/open-quantum-safe/liboqs-python
-cd liboqs-python
 pip install .
 
 ```
 
 ### Run the example
 
-Execute `python3 liboqs-python/examples/sig.py`
+Execute `python3 sig.py`
 
 ### Run the unit test
 
