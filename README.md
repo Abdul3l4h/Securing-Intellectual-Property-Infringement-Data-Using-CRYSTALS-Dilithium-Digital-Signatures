@@ -103,7 +103,9 @@ Execute `python3 sig.py`
 
 ```
 src: contains, sig.py, our Python implementation of CRYSTALS-Dilithium
-Test-Data: will store the sample infringement data, modified infrigemenet data file (if modified), the signed files, and their private and public keys
+Test-Data: will store the sample infringement data 
+    Running the code generates the signed file for the sample data and their private and public keys.
+    Note: The code also demostrates the case where the owner modifies the file(modifies_infringement Data.txt) and generates a new signed file using the previously generated private key and is verified using the previous public key
 ```
 
 ## Conclusion
