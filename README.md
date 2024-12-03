@@ -42,7 +42,7 @@ Test-Data: will store the sample infringement data, modified infrigemenet data f
 Execute in a Terminal/Console/Administrator Command Prompt
 
 ```
-cd src
+cd Dilithium/src
 git clone --depth=1 https://github.com/open-quantum-safe/liboqs
 cmake -S liboqs -B liboqs/build -DBUILD_SHARED_LIBS=ON
 cmake --build liboqs/build --parallel 8
