@@ -40,7 +40,7 @@ The project contains the following files and directories:
 Execute in a Terminal/Console/Administrator Command Prompt
 
 ```
-cd Dilithium/src
+cd src
 git clone --depth=1 https://github.com/open-quantum-safe/liboqs
 cmake -S liboqs -B liboqs/build -DBUILD_SHARED_LIBS=ON
 cmake --build liboqs/build --parallel 8
